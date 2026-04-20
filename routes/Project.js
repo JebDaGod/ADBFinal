@@ -1,60 +1,70 @@
 const express = require('express');
+const { Project, Task } = require('../database/models');
+const authenticate = require('../middleware/auth');
+const { Op } = require('sequelize');
+
 const router = express.Router();
-const { Project } = require('../database/models');
 
-// GET all projects
-router.get('/', async (req, res) => {
-  const projects = await Project.findAll();
-  res.status(200).json(projects);
-});
 
-// GET project by ID
-router.get('/:id', async (req, res) => {
-  const project = await Project.findByPk(req.params.id);
 
-  if (!project) {
-    return res.status(404).json({ error: 'Project not found' });
+
+
+//CORE CRUD
+// GET all projects (with optional search)
+router.get('/', authenticate, async (req, res) => {
+  const where = {};
+
+  if (req.query.name) {
+    where.name = {
+      [Op.like]: `%${req.query.name}%`
+    };
   }
 
-  res.json(project);
+  const projects = await Project.findAll({ where });
+  res.json(projects);
 });
 
-// POST create project
-router.post('/', async (req, res) => {
-  try {
-    const project = await Project.create({
-      name: req.body.name,
-      userId: req.body.userId
-    });
+// CREATE
+router.post('/', authenticate, async (req, res) => {
+  const project = await Project.create({
+    ...req.body,
+    userId: req.user.id
+  });
 
-    res.status(201).json(project);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
+  res.status(201).json(project);
 });
 
-// PUT update project
-router.put('/:id', async (req, res) => {
-  const project = await Project.findByPk(req.params.id);
-
-  if (!project) {
-    return res.status(404).json({ error: 'Project not found' });
-  }
-
-  await project.update(req.body);
-  res.json(project);
+// UPDATE
+router.put('/:id', authenticate, async (req, res) => {
+  await Project.update(req.body, { where: { id: req.params.id } });
+  res.json({ message: 'Updated' });
 });
 
-// DELETE project
-router.delete('/:id', async (req, res) => {
-  const project = await Project.findByPk(req.params.id);
+// DELETE
+router.delete('/:id', authenticate, async (req, res) => {
+  await Project.destroy({ where: { id: req.params.id } });
+  res.json({ message: 'Deleted' });
+});
 
-  if (!project) {
-    return res.status(404).json({ error: 'Project not found' });
-  }
 
-  await project.destroy();
-  res.status(204).send();
+
+//ADVANCED ENDPOINTS
+// GET all tasks for a project (nested route)
+router.get('/:id/tasks', authenticate, async (req, res) => {
+  const tasks = await Task.findAll({
+    where: { projectId: req.params.id }
+  });
+
+  res.json(tasks);
+});
+
+// GET projects for a specific user (nested resource)
+router.get('/user/:userId', authenticate, async (req, res) => {
+  const projects = await Project.findAll({
+    where: { userId: req.params.userId }
+  });
+
+  res.json(projects);
 });
 
 module.exports = router;
