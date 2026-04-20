@@ -11,27 +11,25 @@ app.use((req, res, next) => {
 
 // Routes
 app.use('/users', require('./routes/users'));
-app.use('/projects', require('./routes/projects'));
+app.use('/projects', require('./routes/project'));
 app.use('/tasks', require('./routes/tasks'));
-
-module.exports = app; // Testing
 
 // 404 handler
 app.use((req, res) => {
   res.status(404).json({ error: 'Route not found' });
 });
 
+//Error handling
 app.use((err, req, res, next) => {
   console.error(err.stack);
-
-  //Error handling
   res.status(500).json({
     error: 'Internal Server Error',
     message: err.message
   });
 });
 
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+if (require.main === module) {
+  app.listen(3000, () => console.log('Server running on port 3000'));
+}
+
+module.exports = app; // Testing

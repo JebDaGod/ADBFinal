@@ -1,0 +1,466 @@
+{
+  "info": {
+    "_postman_id": "f58970ae-7660-49ea-892b-0b5221a4ea2a",
+    "name": "ADBFinal API Documentation",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52795234",
+    "_collection_link": "https://go.postman.co/collection/52795234-f58970ae-7660-49ea-892b-0b5221a4ea2a?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Users",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{Final}}/users",
+          "host": [
+            "{{Final}}"
+          ],
+          "path": [
+            "users"
+          ]
+        },
+        "description": "{  \n\"id\": 1,  \n\"name\": \"John Doe\",  \n\"email\": \"[john@example.com](https://mailto:john@example.com)\",  \n\"createdAt\": \"2026-04-20T02:27:05.688Z\",  \n\"updatedAt\": \"2026-04-20T02:27:05.688Z\"  \n}  \n  \n{  \n\"id\": 2,  \n\"name\": \"Jane Smith\",  \n\"email\": \"[jane@example.com](https://mailto:jane@example.com)\",  \n\"createdAt\": \"2026-04-20T02:27:05.701Z\",  \n\"updatedAt\": \"2026-04-20T02:27:05.701Z\"  \n}"
+      },
+      "response": [
+        {
+          "name": "Users",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{Final}}/users",
+              "host": [
+                "{{Final}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "658"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"292-q4BytCiaiI5ZgoXFbJ7CriHTwrQ\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 20 Apr 2026 02:24:46 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 1,\n        \"name\": \"John Doe\",\n        \"email\": \"john@example.com\",\n        \"createdAt\": \"2026-04-20T02:05:13.064Z\",\n        \"updatedAt\": \"2026-04-20T02:05:13.064Z\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Jane Smith\",\n        \"email\": \"jane@example.com\",\n        \"createdAt\": \"2026-04-20T02:05:13.078Z\",\n        \"updatedAt\": \"2026-04-20T02:05:13.078Z\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Shinigami\",\n        \"email\": \"Shinigami@test.com\",\n        \"createdAt\": \"2026-04-20T02:07:58.921Z\",\n        \"updatedAt\": \"2026-04-20T02:08:31.747Z\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"BigRon\",\n        \"email\": \"BigRon@test.com\",\n        \"createdAt\": \"2026-04-20T02:09:24.709Z\",\n        \"updatedAt\": \"2026-04-20T02:10:02.766Z\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Jacob\",\n        \"email\": \"Jacob@test.com\",\n        \"createdAt\": \"2026-04-20T02:15:07.063Z\",\n        \"updatedAt\": \"2026-04-20T02:15:07.063Z\"\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Users by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{Final}}/users/1",
+          "host": [
+            "{{Final}}"
+          ],
+          "path": [
+            "users",
+            "1"
+          ]
+        },
+        "description": "{  \n\"id\": 1,  \n\"name\": \"John Doe\",  \n\"email\": \"[john@example.com](https://mailto:john@example.com)\",  \n\"createdAt\": \"2026-04-20T02:27:05.688Z\",  \n\"updatedAt\": \"2026-04-20T02:27:05.688Z\"  \n}"
+      },
+      "response": []
+    },
+    {
+      "name": "Add Users",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Jacob\",\r\n  \"email\": \"Jacob@test.com\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{Final}}/users",
+          "host": [
+            "{{Final}}"
+          ],
+          "path": [
+            "users"
+          ]
+        },
+        "description": "{  \n\"id\": 3,  \n\"name\": \"Jacob\",  \n\"email\": \"[Jacob@test.com](https://mailto:Jacob@test.com)\",  \n\"updatedAt\": \"2026-04-20T02:28:40.721Z\",  \n\"createdAt\": \"2026-04-20T02:28:40.721Z\"  \n}"
+      },
+      "response": []
+    },
+    {
+      "name": "Update User",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Ron\",\r\n    \"email\": \"Ron@test.com\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{Final}}/users/3",
+          "host": [
+            "{{Final}}"
+          ],
+          "path": [
+            "users",
+            "3"
+          ]
+        },
+        "description": "{  \n\"id\": 3,  \n\"name\": \"Ron\",  \n\"email\": \"[Ron@test.com](https://mailto:Ron@test.com)\",  \n\"createdAt\": \"2026-04-20T02:28:40.721Z\",  \n\"updatedAt\": \"2026-04-20T02:29:01.787Z\"  \n}"
+      },
+      "response": []
+    },
+    {
+      "name": "Delete User",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{Final}}/users/3",
+          "host": [
+            "{{Final}}"
+          ],
+          "path": [
+            "users",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Projects",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{Final}}/projects",
+          "host": [
+            "{{Final}}"
+          ],
+          "path": [
+            "projects"
+          ]
+        },
+        "description": "{  \n\"id\": 1,  \n\"name\": \"Website Redesign\",  \n\"createdAt\": \"2026-04-20T02:27:05.711Z\",  \n\"updatedAt\": \"2026-04-20T02:27:05.711Z\",  \n\"userId\": 1  \n}\n\n  \n{  \n\"id\": 2,  \n\"name\": \"Mobile App\",  \n\"createdAt\": \"2026-04-20T02:27:05.721Z\",  \n\"updatedAt\": \"2026-04-20T02:27:05.721Z\",  \n\"userId\": 2  \n}"
+      },
+      "response": []
+    },
+    {
+      "name": "Projects by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{Final}}/projects/1",
+          "host": [
+            "{{Final}}"
+          ],
+          "path": [
+            "projects",
+            "1"
+          ]
+        },
+        "description": "{  \n\"id\": 1  \n\"name\": \"Website Redesign\",  \n\"createdAt\": \"2026-04-20T02:27:05.711Z\",  \n\"updatedAt\": \"2026-04-20T02:27:05.711Z\",  \n\"userId\": 1  \n}"
+      },
+      "response": []
+    },
+    {
+      "name": "Add Projects",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Build backend\",\r\n    \"userId\": 2\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{Final}}/projects",
+          "host": [
+            "{{Final}}"
+          ],
+          "path": [
+            "projects"
+          ]
+        },
+        "description": "{  \n\"id\": 3,  \n\"name\": \"Build backend\",  \n\"userId\": 2,  \n\"updatedAt\": \"2026-04-20T02:30:24.857Z\",  \n\"createdAt\": \"2026-04-20T02:30:24.857Z\"  \n}"
+      },
+      "response": []
+    },
+    {
+      "name": "Update Projects",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Finish Backend\",\r\n    \"userId\": 2\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{Final}}/projects/3",
+          "host": [
+            "{{Final}}"
+          ],
+          "path": [
+            "projects",
+            "3"
+          ]
+        },
+        "description": "{  \n\"id\": 3,  \n\"name\": \"Finish Backend\",  \n\"createdAt\": \"2026-04-20T02:30:24.857Z\",  \n\"updatedAt\": \"2026-04-20T02:30:50.376Z\",  \n\"userId\": 2  \n}"
+      },
+      "response": []
+    },
+    {
+      "name": "Delete projects",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Build Detroit and Ontario\",\r\n    \"userId\": 5\r\n}"
+        },
+        "url": {
+          "raw": "{{Final}}/projects/3",
+          "host": [
+            "{{Final}}"
+          ],
+          "path": [
+            "projects",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Tasks",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{Final}}/tasks",
+          "host": [
+            "{{Final}}"
+          ],
+          "path": [
+            "tasks"
+          ]
+        },
+        "description": "{  \n\"id\": 1,  \n\"title\": \"Create wireframes\",  \n\"completed\": false,  \n\"createdAt\": \"2026-04-20T02:27:05.731Z\",\n\n\"updatedAt\": \"2026-04-20T02:27:05.731Z\",  \n\"projectId\": 1  \n},  \n{  \n\"id\": 2,  \n\"title\": \"Build homepage\",  \n\"completed\": true,  \n\"createdAt\": \"2026-04-20T02:27:05.731Z\",  \n\"updatedAt\": \"2026-04-20T02:27:05.731Z\",  \n\"projectId\": 1  \n},  \n{  \n\"id\": 3,  \n\"title\": \"Design UI\",  \n\"completed\": false,  \n\"createdAt\": \"2026-04-20T02:27:05.731Z\",  \n\"updatedAt\": \"2026-04-20T02:27:05.731Z\",  \n\"projectId\": 2  \n},  \n{  \n\"id\": 4,  \n\"title\": \"Set up backend\",  \n\"completed\": false,  \n\"createdAt\": \"2026-04-20T02:27:05.731Z\",  \n\"updatedAt\": \"2026-04-20T02:27:05.731Z\",  \n\"projectId\": 2  \n}"
+      },
+      "response": []
+    },
+    {
+      "name": "Tasks by ID",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{Final}}/tasks/1",
+          "host": [
+            "{{Final}}"
+          ],
+          "path": [
+            "tasks",
+            "1"
+          ]
+        },
+        "description": "{  \n\"id\": 1,  \n\"title\": \"Create wireframes\",  \n\"completed\": false,  \n\"createdAt\": \"2026-04-20T02:27:05.731Z\",  \n\"updatedAt\": \"2026-04-20T02:27:05.731Z\",  \n\"projectId\": 1}EndFragment"
+      },
+      "response": []
+    },
+    {
+      "name": "Add Tasts",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"Finish API\",\r\n    \"completed\": false,\r\n    \"projectId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{Final}}/tasks",
+          "host": [
+            "{{Final}}"
+          ],
+          "path": [
+            "tasks"
+          ]
+        },
+        "description": "{  \n\"id\": 5,  \n\"title\": \"Finish API\",  \n\"completed\": false,  \n\"projectId\": 1,  \n\"updatedAt\": \"2026-04-20T02:31:46.961Z\",  \n\"createdAt\": \"2026-04-20T02:31:46.961Z\"\n\n}"
+      },
+      "response": []
+    },
+    {
+      "name": "Update Tasks",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"Finish API\",\r\n    \"completed\": true\r\n    \"projectId\": 1\r\n}"
+        },
+        "url": {
+          "raw": "{{Final}}/tasks/2",
+          "host": [
+            "{{Final}}"
+          ],
+          "path": [
+            "tasks",
+            "2"
+          ]
+        },
+        "description": "{  \n\"id\": 2,  \n\"title\": \"Build homepage\",\n\n\"completed\": true,  \n\"createdAt\": \"2026-04-20T02:27:05.731Z\",\n\n\"updatedAt\": \"2026-04-20T02:27:05.731Z\",\n\n\"projectId\": 1\n\n}"
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Tasks",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{Final}}/tasks/1",
+          "host": [
+            "{{Final}}"
+          ],
+          "path": [
+            "tasks",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "Final",
+      "value": ""
+    }
+  ]
+}

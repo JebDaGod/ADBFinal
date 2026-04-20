@@ -1,16 +1,29 @@
-const User = require('./User');
+const User = require('./users');
+const Task = require('./Tasks');
 const Project = require('./Project');
-const Task = require('./Task');
 
-// Relationships
-User.hasMany(Project, { foreignKey: 'userId' });
-Project.belongsTo(User, { foreignKey: 'userId' });
+User.hasMany(Project, { // User can have many projects
+    foreignKey: 'userId',
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+});
 
-Project.hasMany(Task, { foreignKey: 'projectId' });
-Task.belongsTo(Project, { foreignKey: 'projectId' });
+Project.belongsTo(User,{ // Projects can belong to users
+    foreignKey: 'userId'
+});
+
+Project.hasMany(Task, { // Projects can have many tasks
+    foreignKey: 'projectId',
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE'
+});
+
+Task.belongsTo(Project, { // Tasks belong to Projects, but not users
+    foreignKey: 'projectId'
+});
 
 module.exports = {
-  User,
-  Project,
-  Task
+    User,
+    Project,
+    Task
 };
