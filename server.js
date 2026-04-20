@@ -19,9 +19,13 @@ app.use((req, res) => {
   res.status(404).json({ error: 'Route not found' });
 });
 
-// Error handler
 app.use((err, req, res, next) => {
-  res.status(500).json({ error: err.message });
+  console.error(err.stack);
+
+  res.status(500).json({
+    error: 'Internal Server Error',
+    message: err.message
+  });
 });
 
 const PORT = 3000;
