@@ -4,7 +4,7 @@
   "description": "Application Development 1: Backend Final project part 1",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --runInBand",
     "start": "node server.js",
     "setup": "node database/setup.js",
     "seed": "node database/seed.js"

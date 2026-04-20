@@ -14,6 +14,8 @@ app.use('/users', require('./routes/users'));
 app.use('/projects', require('./routes/projects'));
 app.use('/tasks', require('./routes/tasks'));
 
+module.exports = app; // Testing
+
 // 404 handler
 app.use((req, res) => {
   res.status(404).json({ error: 'Route not found' });
@@ -22,6 +24,7 @@ app.use((req, res) => {
 app.use((err, req, res, next) => {
   console.error(err.stack);
 
+  //Error handling
   res.status(500).json({
     error: 'Internal Server Error',
     message: err.message
