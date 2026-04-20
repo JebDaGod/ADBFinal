@@ -4,7 +4,10 @@ const sequelize = require('../db');
 const Task = sequelize.define('Task', {
   title: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   },
   completed: {
     type: DataTypes.BOOLEAN,

@@ -4,7 +4,10 @@ const sequelize = require('../db');
 const Project = sequelize.define('Project', {
   name: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   }
 });
 
