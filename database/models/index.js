@@ -1,6 +1,6 @@
 const User = require('./users');
 const Task = require('./tasks');
-const Project = require('./Project');
+const Project = require('./project');
 
 User.hasMany(Project, { // User can have many projects
     foreignKey: 'userId',
